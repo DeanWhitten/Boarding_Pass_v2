@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.deanwhitten.boarding_pass_v2.Main_Controller">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Label text="Flight Booking Simulator">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font></Label>
+   <TextField fx:id="SearchBar_TextField" prefHeight="25.0" prefWidth="668.0" promptText="Search for Ticket by Ticket ID or Passanger Name" />
+   <TableView fx:id="Flights_Table" prefHeight="311.0" prefWidth="960.0">
+     <columns>
+       <TableColumn fx:id="ticketID_col" editable="false" prefWidth="101.0" resizable="false" text="Ticket ID" />
+       <TableColumn fx:id="firstName_col" editable="false" prefWidth="120.0" resizable="false" text="First Name" />
+         <TableColumn fx:id="lastName_col" editable="false" prefWidth="101.0" resizable="false" text="Last Name" />
+         <TableColumn fx:id="origin_col" editable="false" prefWidth="214.0" resizable="false" text="Origin" />
+         <TableColumn fx:id="destination_col" editable="false" prefWidth="234.0" resizable="false" text="Destination" />
+         <TableColumn fx:id="departure_col" editable="false" prefWidth="101.0" resizable="false" text="Departure" />
+         <TableColumn fx:id="Arrival_col" editable="false" prefWidth="87.0" resizable="false" text="Arrival" />
+     </columns>
+   </TableView>
+
+    <Label fx:id="welcomeText" />
+   <GridPane prefHeight="30.0" prefWidth="992.0">
+     <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="288.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.0" minWidth="0.0" prefWidth="132.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="553.0" minWidth="1.0" prefWidth="126.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="815.0" minWidth="10.0" prefWidth="146.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="694.0" minWidth="10.0" prefWidth="268.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Button fx:id="book_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Book New Flight" GridPane.columnIndex="1" />
+         <Button fx:id="cancel_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Cancel Flight" GridPane.columnIndex="3" />
+         <Button fx:id="details_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="View Flight Details" GridPane.columnIndex="2" />
+      </children>
+   </GridPane>
+   <Label fx:id="error_label" alignment="CENTER" prefHeight="17.0" prefWidth="1134.0" text="Error Messages" textFill="RED" />
+   <GridPane>
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="425.0" minWidth="10.0" prefWidth="420.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="84.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="64.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="427.0" minWidth="10.0" prefWidth="392.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Button fx:id="yes_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="Yes" GridPane.columnIndex="1" />
+         <Button fx:id="no_btn" mnemonicParsing="false" text="No" GridPane.columnIndex="2" />
+      </children>
+   </GridPane>
+</VBox>
