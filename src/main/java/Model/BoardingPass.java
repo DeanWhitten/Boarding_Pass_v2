@@ -155,7 +155,7 @@ public class BoardingPass {
         return distance;
     }
 
-    //calculates ETA based on distance and departure
+    //calculates ETA based on distance and departure time
     public LocalTime calculateETA(Double distance, LocalTime departure){
         LocalTime eta = null;
 
