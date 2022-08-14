@@ -3,6 +3,6 @@ package Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Flights {
+public class FlightSchedule {
     private ObservableList<BoardingPass> allBoardingPasses = FXCollections.observableArrayList();
 }

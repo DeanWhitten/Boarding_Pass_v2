@@ -12,27 +12,24 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Details_Controller {
-    public Label ticket_id_txt;
-    public Label name_txt;
-    public Label email_txt;
-    public Label phoneNumber_txt;
-    public Label gender_txt;
-    public Label age_txt;
-    public Label date_txt;
-    public Label flightTime_txt;
-    public Label origin_txt;
-    public Label destination_txt;
+public class Estimate_Controller {
+    public Label departure_txt;
     public Label duration_txt;
     public Label eta_txt;
-    public Label basePrice_txt;
-    public Label ageDiscount_txt;
-    public Label genderDiscount_txt;
-    public Label ticketTotal_txt;
-    public Button return_btn;
+    public Label base_ticket_cost_txt;
+    public Label age_discount_txt;
+    public Label gender_discount_txt;
+    public Label ticket_total_txt;
+    public Button back_btn;
+    public Button book_flight_btn;
 
     @FXML
-    private void onReturnClick(ActionEvent event) throws IOException {
+    private void onBackClick(ActionEvent event) throws IOException {
+        loadWindow("Form_view", event);
+    }
+
+    @FXML
+    private void onBookFlightClicked(ActionEvent event) throws IOException {
         loadWindow("Main_view", event);
     }
 
@@ -44,5 +41,4 @@ public class Details_Controller {
         stage.setScene(scene);
         stage.show();
     }
-
 }
