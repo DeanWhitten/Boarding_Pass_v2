@@ -7,165 +7,217 @@ public class BoardingPass {
 
 
     private int ticketID;
-    private LocalDate date;
-    private Locations origin;
-    private Locations destination;
-    private LocalTime eta;
-    private LocalTime departure;
-
     private String name;
     private String email;
     private String phoneNum;
     private String gender;
     private int age;
 
-    private double ticketPrice;
+    private LocalDate date;
+    private LocalTime departure;
+    private String origin;
+    private String destination;
+    private int duration;
+    private LocalTime eta;
 
-    public BoardingPass(int ticketID, LocalDate date, Locations origin, Locations destination, LocalTime eta,
-                        LocalTime departure, String name, String email, String phoneNum, String gender, int age,
-                        double ticketPrice){
+    private double basePrice;
+    private double ageDiscount;
+    private double genderDiscount;
+    private double totalPrice;
+
+
+
+    public BoardingPass(int ticketID, String name, String email, String  phoneNum, String gender, int age,
+                        LocalDate date, LocalTime departure, String origin, String destination, int duration,
+                        LocalTime eta, double basePrice, double ageDiscount, double genderDiscount, double totalPrice){
         this.setTicketID(ticketID);
-        this.setDate(date);
-        this.setOrigin(origin);
-        this.setDestination(destination);
-        this.setEta(eta);
-        this.setDeparture(departure);
-
         this.setName(name);
         this.setEmail(email);
         this.setPhoneNum(phoneNum);
         this.setGender(gender);
         this.setAge(age);
 
-        this.setTicketPrice(ticketPrice);
+        this.setDate(date);
+        this.setDeparture(departure);
+        this.setOrigin(origin);
+        this.setDestination(destination);
+        this.setDuration(duration);
+        this.setEta(eta);
+
+        this.setBasePrice(basePrice);
+        this.setAgeDiscount(ageDiscount);
+        this.setGenderDiscount(genderDiscount);
+        this.setTotalPrice(totalPrice);
     }
 
+    public BoardingPass() {
+
+    }
 
     public int getTicketID() {
         return ticketID;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+    public String getGender() {
+        return gender;
+    }
+    public int getAge() {
+        return age;
+    }
+    public LocalDate getDate() {
+        return date;
+    }
+    public LocalTime getDeparture() {
+        return departure;
+    }
+    public String getOrigin() {
+        return origin;
+    }
+    public String getDestination() {
+        return destination;
+    }
+    public int getDuration() {
+        return duration;
+    }
+    public LocalTime getEta() {
+        return eta;
+    }
+    public double getBasePrice() {
+        return basePrice;
+    }
+    public double getAgeDiscount() {
+        return ageDiscount;
+    }
+    public double getGenderDiscount() {
+        return genderDiscount;
+    }
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
     public void setTicketID(int ticketID) {
         this.ticketID = ticketID;
     }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public Locations getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(Locations origin) {
-        this.origin = origin;
-    }
-
-    public Locations getDestination() {
-        return destination;
-    }
-
-    public void setDestination(Locations destination) {
-        this.destination = destination;
-    }
-
-    public LocalTime getEta() {
-        return eta;
-    }
-
-    public void setEta(LocalTime eta) {
-        this.eta = eta;
-    }
-
-    public LocalTime getDeparture() {
-        return departure;
-    }
-
-    public void setDeparture(LocalTime departure) {
-        this.departure = departure;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getPhoneNum() {
-        return phoneNum;
-    }
-
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
-
-    public String getGender() {
-        return gender;
-    }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
-
-    public int getAge() {
-        return age;
-    }
-
     public void setAge(int age) {
         this.age = age;
     }
-
-    public double getTicketPrice() {
-        return ticketPrice;
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+    public void setDeparture(LocalTime departure) {
+        this.departure = departure;
+    }
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+    public void setEta(LocalTime eta) {
+        this.eta = eta;
+    }
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+    public void setAgeDiscount(double ageDiscount) {
+        this.ageDiscount = ageDiscount;
+    }
+    public void setGenderDiscount(double genderDiscount) {
+        this.genderDiscount = genderDiscount;
+    }
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public void setTicketPrice(double ticketPrice) {
-        this.ticketPrice = ticketPrice;
-    }
 
-    public void generateEstimates(String gender, int age, Locations origin, Locations destination, LocalTime departure){
-       Double distance = calculateDistance(origin, destination);
-       LocalTime eta = calculateETA(distance, departure);
-       Double ticketPrice = calculatePrice(distance, age, gender);
 
-       setEta(eta);
-       setTicketPrice(ticketPrice);
-
+    public void generateEstimates(String gender, int age, String origin, String destination, LocalTime departure){
+       double distance = calculateDistance(origin, destination);
+       calculateETA(distance);
+       calculatePrice(distance, age, gender);
     }
 
 
    //calculates distance in miles
-    private Double calculateDistance(Locations origin, Locations destination) {
-        double distance = 0;
+    public double calculateDistance(String origin, String destination){
+        Locations locations = new Locations();
+        double lat1 = locations.findLocationLAT(origin);
+        double lon1 = locations.findLocationLONG(origin);
+        double lat2 = locations.findLocationLAT(destination);
+        double lon2 = locations.findLocationLONG(destination);
 
-        return distance;
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        return dist;
+    }
+    private double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+    private double rad2deg(double rad) {
+        return (rad * 180.0 / Math.PI);
     }
 
-    //calculates ETA based on distance and departure time
-    public LocalTime calculateETA(Double distance, LocalTime departure){
-        LocalTime eta = null;
 
-        return null;
+    //calculates ETA based on distance and departure time
+    public void calculateETA(Double distance){
+        double mph = 500;
+
+        int totalDurInMins = (int) (distance / mph) * 60;
+        setDuration(totalDurInMins);
+
+        setEta(getDeparture().minusMinutes(totalDurInMins));
     }
 
     //calculates price based on distance for the base ticket price and discounts based on gender and age.
-    private Double calculatePrice(Double distance, int age, String gender) {
-        Double price = 0.00;
+    private void calculatePrice(double distance, int age, String gender) {
+        double basePrice = .25 * distance;
+        setBasePrice(basePrice);
 
-        return price;
+        if(age >= 60){
+            setAgeDiscount(getBasePrice() / .60);
+            basePrice = basePrice - getAgeDiscount();
+        }
+
+        if (age <= 12){
+            setAgeDiscount(getBasePrice()/ .5);
+            basePrice = basePrice - getAgeDiscount();
+        }
+
+
+        if (gender.equals("Female")){
+            setGenderDiscount(basePrice /.25);
+        }
+
+        setTotalPrice(getBasePrice() - (getAgeDiscount() + getGenderDiscount()));
+
     }
+
+
+
 }

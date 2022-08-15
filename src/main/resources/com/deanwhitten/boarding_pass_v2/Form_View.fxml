@@ -19,6 +19,7 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -30,24 +31,26 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="name_input" promptText="John Smith" GridPane.columnIndex="1" />
-            <TextField fx:id="email_input" promptText="example@email.com" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="phone_input" promptText="1-999-888-7777" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Name" />
-            <Label text="Email" GridPane.rowIndex="1" />
-            <Label text="Phone Number" GridPane.rowIndex="2" />
-            <Label text="Gender" GridPane.rowIndex="3" />
-            <Label text="Age" GridPane.rowIndex="4" />
-            <Label text="Date" GridPane.rowIndex="5" />
-            <Label text="Departure Time" GridPane.rowIndex="6" />
-            <Label text="Origin" GridPane.rowIndex="7" />
-            <Label text="Destination" GridPane.rowIndex="8" />
-            <DatePicker fx:id="date_selection" prefHeight="25.0" prefWidth="215.0" promptText="Pick a flight date" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="age_input" promptText="65" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ChoiceBox fx:id="gender_selection" prefHeight="25.0" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ChoiceBox fx:id="departureTime_selection" prefHeight="25.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <ChoiceBox fx:id="origin_selection" prefHeight="25.0" prefWidth="228.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <ChoiceBox fx:id="destination_selection" prefHeight="25.0" prefWidth="214.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="name_input" promptText="John Smith" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="email_input" promptText="example@email.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="phone_input" promptText="1-999-888-7777" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Name" GridPane.rowIndex="1" />
+            <Label text="Email" GridPane.rowIndex="2" />
+            <Label text="Phone Number" GridPane.rowIndex="3" />
+            <Label text="Gender" GridPane.rowIndex="4" />
+            <Label text="Age" GridPane.rowIndex="5" />
+            <Label text="Date" GridPane.rowIndex="6" />
+            <Label text="Departure Time" GridPane.rowIndex="7" />
+            <Label text="Origin" GridPane.rowIndex="8" />
+            <Label text="Destination" GridPane.rowIndex="9" />
+            <DatePicker fx:id="date_selection" prefHeight="25.0" prefWidth="215.0" promptText="Pick a flight date" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="age_input" promptText="65" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ChoiceBox fx:id="gender_selection" prefHeight="25.0" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="departureTime_selection" prefHeight="25.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ChoiceBox fx:id="origin_selection" prefHeight="25.0" prefWidth="228.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <ChoiceBox fx:id="destination_selection" prefHeight="25.0" prefWidth="214.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Ticket ID:" />
+            <TextField fx:id="id_input" disable="true" promptText="Auto-Gen: " GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <GridPane layoutX="37.0" layoutY="441.0" prefHeight="30.0" prefWidth="443.0">
@@ -69,6 +72,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="errorMsg_text" alignment="CENTER" layoutX="40.0" layoutY="422.0" prefHeight="17.0" prefWidth="418.0" text="ERROR MSG" textFill="RED" />
+      <Label fx:id="errorMsg_text" alignment="CENTER" layoutX="40.0" layoutY="422.0" opacity="0.0" prefHeight="17.0" prefWidth="418.0" text="ERROR MSG" textFill="RED" />
    </children>
 </AnchorPane>
