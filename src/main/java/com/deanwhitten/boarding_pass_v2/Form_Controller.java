@@ -106,7 +106,7 @@ public class Form_Controller implements Initializable {
             validInputs++;
         }
 
-        if(phone_input.getText().isEmpty() || !phone_input.getText().matches("\\d*") || phone_input.getText().length() != 10){
+        if(phone_input.getText().isEmpty() || !phone_input.getText().matches("^(\\d{3}-?){2}\\d{4}$") || phone_input.getText().length() != 12){
             phone_input.setText("");
             phone_input.requestFocus();
         }else{
